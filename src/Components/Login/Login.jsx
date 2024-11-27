@@ -30,7 +30,7 @@ function Login({ onLoginSuccess }) {
       localStorage.setItem("isLoggedIn", "true"); 
       console.log("Token saved in localStorage:", localStorage.getItem("jwtToken"));
       onLoginSuccess(response.data);
-      window.location.href = "/dashboard"; 
+      navigate("/dashboard");
     } catch (err) {
       console.error("Login error:", err);
       setError("Invalid credentials, please try again.");

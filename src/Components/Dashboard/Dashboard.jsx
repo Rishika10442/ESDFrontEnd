@@ -145,17 +145,7 @@ function Dashboard() {
     }
   };
 
-  // Filter students based on the selected filters
-  const filteredStudents = students.filter((student) => {
-    const matchesDomain =
-      domainFilter === "all" ||
-      student.domainProgram.toLowerCase() === domainFilter.toLowerCase();
-    const matchesSpecialization =
-      specializationFilter === "all" ||
-      (student.specialisationName && student.specialisationName.toLowerCase() === specializationFilter.toLowerCase());
-      return matchesDomain && matchesSpecialization;
-  });
-
+  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -206,7 +196,7 @@ function Dashboard() {
           </tr>
         </thead>
         <tbody>
-          {filteredStudents.map((student) => (
+          {students.map((student) => (
             <tr key={student.studentId}>
               <td>{student.firstName} {student.lastName}</td>
               <td>{student.rollNumber}</td>
