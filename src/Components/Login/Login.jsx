@@ -26,11 +26,11 @@ function Login({ onLoginSuccess }) {
         return;
       }
 
-      localStorage.setItem("jwtToken", token); // Store the JWT token
-      localStorage.setItem("isLoggedIn", "true"); // Store the login status
+      localStorage.setItem("jwtToken", token); 
+      localStorage.setItem("isLoggedIn", "true"); 
       console.log("Token saved in localStorage:", localStorage.getItem("jwtToken"));
       onLoginSuccess(response.data);
-      window.location.href = "/dashboard"; // Redirect to the dashboard
+      window.location.href = "/dashboard"; 
     } catch (err) {
       console.error("Login error:", err);
       setError("Invalid credentials, please try again.");

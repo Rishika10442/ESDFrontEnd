@@ -152,8 +152,8 @@ function Dashboard() {
       student.domainProgram.toLowerCase() === domainFilter.toLowerCase();
     const matchesSpecialization =
       specializationFilter === "all" ||
-      student.specialisationName.toLowerCase() === specializationFilter.toLowerCase();
-    return matchesDomain && matchesSpecialization;
+      (student.specialisationName && student.specialisationName.toLowerCase() === specializationFilter.toLowerCase());
+      return matchesDomain && matchesSpecialization;
   });
 
   if (loading) {
@@ -178,8 +178,8 @@ function Dashboard() {
         <label htmlFor="specialization">Filter by Specialization:</label>
         <select id="specialization" onChange={handleSpecializationFilterChange}>
           <option value="all">All</option>
-          <option value="data science">Data Science</option>
-          <option value="computer science">Computer Science</option>
+          <option value="DataScience">Data Science</option>
+          <option value="ComputerScience">Computer Science</option>
           <option value="ece">ECE</option>
         </select>
         <button onClick={handleCalculateSpecializations} className="btn btn-primary ml-2">
